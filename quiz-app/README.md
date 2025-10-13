@@ -6,6 +6,7 @@ Live link: https://quizzical1234.netlify.app/
 ## Tools/Languages used
 
 Front-end: React, JavaScript, HTML, CSS
+
 Back-end: Node.js, Vite
 
 Public API used: https://opentdb.com/api_config.php
