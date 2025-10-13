@@ -1,7 +1,7 @@
 # Quizzical
 Trivia quiz app
 
-Live link: quizzical1234.netlify.app
+Live link: https://quizzical1234.netlify.app/
 
 ## Tools/Languages used
 
