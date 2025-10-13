@@ -1,6 +1,8 @@
 # Quizzical
 Trivia quiz app
 
+Live link: quizzical1234.netlify.app
+
 ## Tools/Languages used
 
 Front-end: React, JavaScript, HTML, CSS
