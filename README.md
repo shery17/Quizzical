@@ -1,2 +1,0 @@
-# Quizzical
-Trivia quiz app
