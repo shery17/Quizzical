@@ -4,7 +4,7 @@ Trivia quiz app
 ## Tools/Languages used
 
 Front-end: React, JavaScript, HTML, CSS
-Back-end: Node.js
+Back-end: Node.js, Vite
 
 Public API used: https://opentdb.com/api_config.php
 
