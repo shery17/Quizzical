@@ -1,0 +1,36 @@
+# dockerfile.prod for production deployment, removes dev environment overhead to make the container as small as possible to deploy
+
+# ==========================================
+# STAGE 1: The Secure Builder Environment
+# ==========================================
+# We pull Node purely to use its compiler tools
+FROM node:22-alpine AS builder
+
+WORKDIR /app
+
+# Install dependencies cleanly
+COPY package*.json ./
+RUN npm ci
+
+# Bring in the source code
+COPY . .
+
+# Compile the React/Vite code into highly compressed static HTML, CSS, and JS
+# This places your production-ready website inside a new folder called '/app/dist'
+RUN npm run build
+
+# ==========================================
+# STAGE 2: The Hardened Production Runtime
+# ==========================================
+# We completely drop Node.js and pull a microscopic, hyper-secure Nginx server
+FROM nginx:1.25-alpine
+
+# Reach back into STAGE 1 ('builder'), grab ONLY the compiled code, 
+# and drop it straight into Nginx's public delivery folder
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Open port 80 (the standard universal port for web traffic)
+EXPOSE 80
+
+# Boot Nginx as the main foreground process (PID 1)
+CMD ["nginx", "-g", "daemon off;"]
