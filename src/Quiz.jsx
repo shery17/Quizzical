@@ -81,7 +81,7 @@ export default function Quiz() {
 
 
             {showScore && 
-            <div class="showScore-container">
+            <div className="showScore-container">
                 <p>You scored {correctlyAnswered}/{questions.length} correct answers</p>
                 <button onClick={handlePlayAgain} type="button">Play again</button>
             </div>
