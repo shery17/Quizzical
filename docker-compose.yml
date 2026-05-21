@@ -1,0 +1,20 @@
+# docker compose up will default to use dev service
+
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: quizzical-dev-container
+    ports:
+      - "5173:5173"
+
+  prod:
+    profiles:
+      - prod-test
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    container_name: quizzical-prod-container
+    ports:
+      - "8080:80"
